@@ -1,20 +1,24 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - echo "========== INSTALL PHASE =========="
+
   build:
     commands:
       - echo "========== BUILD STAGE =========="
       - ls
-      - echo "Branch Name: $CODEBUILD_SOURCE_VERSION"
+      - echo "Branch Name $CODEBUILD_SOURCE_VERSION"
       - echo "=================================="
 
   post_build:
     commands:
       - echo "========== TEST STAGE =========="
       - ls
-      - echo "Branch Name: $CODEBUILD_SOURCE_VERSION"
+      - echo "Branch Name $CODEBUILD_SOURCE_VERSION"
       - echo "================================="
       - echo "========== DEPLOY STAGE =========="
       - ls
-      - echo "Branch Name: $CODEBUILD_SOURCE_VERSION"
+      - echo "Branch Name $CODEBUILD_SOURCE_VERSION"
       - echo "===================================="
