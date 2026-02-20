@@ -10,22 +10,19 @@ phases:
       - echo "========== BUILD STAGE =========="
       - ls
       - echo "Raw source version: $CODEBUILD_SOURCE_VERSION"
-      - BRANCH_NAME=$(echo $CODEBUILD_SOURCE_VERSION | cut -d'/' -f3)
-      - echo "Build Stage Branch Name: $BRANCH_NAME"
+      - echo "Build Stage Branch Name: $(echo $CODEBUILD_SOURCE_VERSION | cut -d'/' -f3)"
       - echo "=================================="
 
   post_build:
     commands:
       - echo "========== TEST STAGE =========="
       - ls
-      - BRANCH_NAME=$(echo $CODEBUILD_SOURCE_VERSION | cut -d'/' -f3)
-      - echo "Test Stage Branch Name: $BRANCH_NAME"
+      - echo "Test Stage Branch Name: $(echo $CODEBUILD_SOURCE_VERSION | cut -d'/' -f3)"
       - echo "================================="
 
   finally:
     commands:
       - echo "========== DEPLOY STAGE =========="
       - ls
-      - BRANCH_NAME=$(echo $CODEBUILD_SOURCE_VERSION | cut -d'/' -f3)
-      - echo "Deploy Stage Branch Name: $BRANCH_NAME"
+      - echo "Deploy Stage Branch Name: $(echo $CODEBUILD_SOURCE_VERSION | cut -d'/' -f3)"
       - echo "===================================="
