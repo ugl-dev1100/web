@@ -1,0 +1,31 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "========== INSTALL PHASE =========="
+
+  build:
+    commands:
+      - echo "========== BUILD STAGE =========="
+      - ls
+      - echo "Raw source version: $CODEBUILD_SOURCE_VERSION"
+      - BRANCH_NAME=${CODEBUILD_SOURCE_VERSION#refs/heads/}
+      - echo "Build Stage Branch Name: $BRANCH_NAME"
+      - echo "=================================="
+
+  post_build:
+    commands:
+      - echo "========== TEST STAGE =========="
+      - ls
+      - BRANCH_NAME=${CODEBUILD_SOURCE_VERSION#refs/heads/}
+      - echo "Test Stage Branch Name: $BRANCH_NAME"
+      - echo "================================="
+
+  finally:
+    commands:
+      - echo "========== DEPLOY STAGE =========="
+      - ls
+      - BRANCH_NAME=${CODEBUILD_SOURCE_VERSION#refs/heads/}
+      - echo "Deploy Stage Branch Name: $BRANCH_NAME"
+      - echo "===================================="
