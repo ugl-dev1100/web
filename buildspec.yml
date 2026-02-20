@@ -10,7 +10,7 @@ phases:
       - echo "========== BUILD STAGE =========="
       - ls
       - echo "Raw source version: $CODEBUILD_SOURCE_VERSION"
-      - BRANCH_NAME=${CODEBUILD_SOURCE_VERSION#refs/heads/}
+      - "BRANCH_NAME=${CODEBUILD_SOURCE_VERSION#refs/heads/}"
       - echo "Build Stage Branch Name: $BRANCH_NAME"
       - echo "=================================="
 
@@ -18,7 +18,7 @@ phases:
     commands:
       - echo "========== TEST STAGE =========="
       - ls
-      - BRANCH_NAME=${CODEBUILD_SOURCE_VERSION#refs/heads/}
+      - "BRANCH_NAME=${CODEBUILD_SOURCE_VERSION#refs/heads/}"
       - echo "Test Stage Branch Name: $BRANCH_NAME"
       - echo "================================="
 
@@ -26,6 +26,6 @@ phases:
     commands:
       - echo "========== DEPLOY STAGE =========="
       - ls
-      - BRANCH_NAME=${CODEBUILD_SOURCE_VERSION#refs/heads/}
+      - "BRANCH_NAME=${CODEBUILD_SOURCE_VERSION#refs/heads/}"
       - echo "Deploy Stage Branch Name: $BRANCH_NAME"
       - echo "===================================="
